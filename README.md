@@ -4,9 +4,9 @@ Web Service
 
 Create class Person with fields:
 
-*Name
-*Birthday
-*Friends
+* Name
+* Birthday
+* Friends
 
 Implement SOAP Web service with one method that has 2 arguments (Person and year) and returns Friends of the given person that were born on particular year. 
 
