@@ -10,7 +10,7 @@ import javax.jws.WebService;
  * Created by sten on 11.04.17.
  */
 @WebService
-public class PersonService implements PersonServiceIface {
+public class PersonFriends implements PersonFriendsIface {
 
     @WebMethod
     public Friends getFriends(Person p, Integer year) throws NoMatchedFriendsException {

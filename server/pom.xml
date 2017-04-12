@@ -88,7 +88,7 @@
                 </dependencies>
 
                 <configuration>
-                    <className>com.epam.wklab.soap.PersonService</className>
+                    <className>com.epam.wklab.soap.PersonFriends</className>
                     <genWsdl>true</genWsdl>
                     <verbose>true</verbose>
                 </configuration>

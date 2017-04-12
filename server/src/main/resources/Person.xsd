@@ -16,11 +16,11 @@
 
     <element name="Person">
         <complexType>
-            <sequence>
+            <all>
                 <element name="name" type="string"/>
                 <element name="birth" type="date" />
                 <element name="friends" type="tns:Friends"/>
-            </sequence>
+            </all>
         </complexType>
     </element>
 

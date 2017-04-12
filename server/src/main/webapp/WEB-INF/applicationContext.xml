@@ -12,10 +12,10 @@
     <!--<import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml"/>-->
     <!--<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>-->
 
-    <bean id="personsvc" class="com.epam.wklab.soap.PersonService" />
+    <bean id="personsvc" class="com.epam.wklab.soap.PersonFriends" />
 
     <jaxws:endpoint id="person"
                     implementor="#personsvc"
-                    address="/PersonSvc"/>
+                    address="/PersonFriends"/>
 
 </beans>

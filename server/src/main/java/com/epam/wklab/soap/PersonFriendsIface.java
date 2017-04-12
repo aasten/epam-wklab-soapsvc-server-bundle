@@ -13,7 +13,7 @@ import java.util.List;
  * Created by sten on 11.04.17.
  */
 @WebService
-public interface PersonServiceIface {
+public interface PersonFriendsIface {
     @WebMethod
     @WebResult(name="friends")
     Friends getFriends(
