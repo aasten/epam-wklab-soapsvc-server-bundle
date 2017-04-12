@@ -90,6 +90,7 @@
                 <configuration>
                     <className>com.epam.wklab.soap.PersonFriends</className>
                     <genWsdl>true</genWsdl>
+                    <outputFile>${basedir}/src/main/webapp/META-INF/PersonFriends.wsdl</outputFile>
                     <verbose>true</verbose>
                 </configuration>
                 <executions>

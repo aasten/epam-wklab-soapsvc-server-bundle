@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://wklab.epam.com/Person"
-        xmlns:tns="http://wklab.epam.com/Person"
-        elementFormDefault="qualified" attributeFormDefault="unqualified">
+        xmlns:tns="http://wklab.epam.com/Person">
 
 
     <!--xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"-->
