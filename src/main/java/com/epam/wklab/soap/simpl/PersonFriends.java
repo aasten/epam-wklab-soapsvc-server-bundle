@@ -1,7 +1,8 @@
-package com.epam.wklab.soap;
+package com.epam.wklab.soap.simpl;
 
 import com.epam.wklab.person.Friends;
 import com.epam.wklab.person.Person;
+import com.epam.wklab.soap.api.PersonFriendsIface;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;

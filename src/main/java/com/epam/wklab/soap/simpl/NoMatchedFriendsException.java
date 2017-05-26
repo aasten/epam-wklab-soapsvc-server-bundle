@@ -1,4 +1,4 @@
-package com.epam.wklab.soap;
+package com.epam.wklab.soap.simpl;
 
 /**
  * Created by sten on 11.04.17.

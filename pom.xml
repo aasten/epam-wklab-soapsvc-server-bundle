@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cxf.version>3.1.10</cxf.version>
         <cxf.scope>compile</cxf.scope>
+        <maven.bundle.plugin.version>3.3.0</maven.bundle.plugin.version>
     </properties>
 
     <dependencies>
@@ -88,7 +89,7 @@
                 </dependencies>
 
                 <configuration>
-                    <className>com.epam.wklab.soap.PersonFriends</className>
+                    <className>com.epam.wklab.soap.simpl.PersonFriends</className>
                     <genWsdl>true</genWsdl>
                     <outputFile>${basedir}/src/main/webapp/META-INF/PersonFriends.wsdl</outputFile>
                     <verbose>true</verbose>
@@ -113,6 +114,13 @@
                     <port>7070</port>
                     <path>/soapservice</path>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven.bundle.plugin.version}</version>
+                <extensions>true</extensions>
             </plugin>
 
         </plugins>
