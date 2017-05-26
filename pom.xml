@@ -8,13 +8,17 @@
     <artifactId>soapsvcsrv</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cxf.version>3.1.10</cxf.version>
         <cxf.scope>compile</cxf.scope>
         <maven.bundle.plugin.version>3.3.0</maven.bundle.plugin.version>
+        <spring.version>4.3.7.RELEASE</spring.version>
+        <osgi.core.version>1.0.0</osgi.core.version>
     </properties>
 
     <dependencies>
@@ -34,9 +38,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.3.7.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
-
+	<dependency>
+		<groupId>org.apache.felix</groupId>
+		<artifactId>org.osgi.core</artifactId>
+		<version>${osgi.core.version}</version>
+	</dependency>
     </dependencies>
 
 
@@ -121,6 +129,32 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>${maven.bundle.plugin.version}</version>
                 <extensions>true</extensions>
+                <configuration>
+                	<instructions>
+                		<Import-Package>*</Import-Package>
+                	</instructions>
+		</configuration>
+            </plugin>
+            
+            <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.7</version>
+            <executions>
+		    <execution>
+			    <id>add-source</id>
+			    <phase>generate-sources</phase>
+			    <goals>
+			    <goal>add-source</goal>
+			    </goals>
+			    <configuration>
+			    <sources>
+			    <source>${basedir}/target/generated/src/main/java</source>
+			    <source>${basedir}/src/main/java</source>
+			    </sources>
+			    </configuration>
+		    </execution>
+            </executions>
             </plugin>
 
         </plugins>
