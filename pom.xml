@@ -17,8 +17,9 @@
         <cxf.version>3.1.10</cxf.version>
         <cxf.scope>compile</cxf.scope>
         <maven.bundle.plugin.version>3.3.0</maven.bundle.plugin.version>
-        <spring.version>4.3.7.RELEASE</spring.version>
         <osgi.core.version>1.0.0</osgi.core.version>
+        <maven.build.helper.plugin>3.0.0</maven.build.helper.plugin>
+        <features.plugin>2.4.4</features.plugin>
     </properties>
 
     <dependencies>
@@ -40,11 +41,13 @@
             <!--<artifactId>spring-web</artifactId>-->
             <!--<version>${spring.version}</version>-->
         <!--</dependency>-->
-	<dependency>
-		<groupId>org.apache.felix</groupId>
-		<artifactId>org.osgi.core</artifactId>
-		<version>${osgi.core.version}</version>
-	</dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${osgi.core.version}</version>
+        </dependency>
+
+
     </dependencies>
 
 
@@ -151,6 +154,76 @@
                     <!--</execution>-->
                 <!--</executions>-->
             <!--</plugin>-->
+
+
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.karaf.tooling</groupId>-->
+                <!--<artifactId>karaf-maven-plugin</artifactId>-->
+                <!--<version>${karaf.plugin}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>generate-features-descriptor</id>-->
+                        <!--<phase>generate-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>features-generate-descriptor</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>build-helper-maven-plugin</artifactId>-->
+                <!--<version>${maven.build.helper.plugin}</version>-->
+
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>attach-artifacts</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>attach-artifact</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<artifacts>-->
+                                <!--<artifact>-->
+                                    <!--<file>${basedir}/target/classes/feature.xml</file>-->
+                                    <!--<type>xml</type>-->
+                                    <!--<classifier>features</classifier>-->
+                                <!--</artifact>-->
+                            <!--</artifacts>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>${features.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>generate-features-xml</goal>
+                        </goals>
+                        <!--<configuration>-->
+                            <!--<outputFile>${project.basedir}/target/feature/feature.xml</outputFile>-->
+                        <!--</configuration>-->
+                    </execution>
+                    <execution>
+                        <id>create-kar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>create-kar</goal>
+                        </goals>
+                        <configuration>
+                            <featuresFile>${project.basedir}/target/classes/feature.xml</featuresFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 
         </plugins>
     </build>
