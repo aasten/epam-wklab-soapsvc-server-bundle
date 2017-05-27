@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="PersonFriendsIface" targetNamespace="http://api.soap.wklab.epam.com/" xmlns:ns1="http://api.soap.wklab.epam.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="PersonFriendsIface" targetNamespace="http://api.soap.wklab.epam.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://api.soap.wklab.epam.com/">
   <wsdl:types>
 <xs:schema xmlns:tns="http://wklab.epam.com/Person" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://wklab.epam.com/Person" version="1.0">
 

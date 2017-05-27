@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="PersonFriendsService" targetNamespace="http://simpl.soap.wklab.epam.com/" xmlns:ns1="http://api.soap.wklab.epam.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://simpl.soap.wklab.epam.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="PersonFriendsService" targetNamespace="http://simpl.soap.wklab.epam.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://simpl.soap.wklab.epam.com/" xmlns:ns1="http://api.soap.wklab.epam.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:import namespace="http://api.soap.wklab.epam.com/" location="PersonFriendsIface.wsdl">
     </wsdl:import>
   <wsdl:binding name="PersonFriendsServiceSoapBinding" type="ns1:PersonFriendsIface">
