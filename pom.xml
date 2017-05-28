@@ -5,102 +5,44 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.epam.wklab</groupId>
-    <artifactId>soapsvcsrv</artifactId>
+    <artifactId>soapsvcsrv-bundle</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>server</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cxf.version>3.1.10</cxf.version>
-        <cxf.scope>compile</cxf.scope>
         <maven.bundle.plugin.version>3.3.0</maven.bundle.plugin.version>
-        <maven.build.helper.plugin>3.0.0</maven.build.helper.plugin>
-        <features.plugin>2.4.4</features.plugin>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>${cxf.version}</version>
-            <scope>${cxf.scope}</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-            <version>${cxf.version}</version>
-            <scope>${cxf.scope}</scope>
-        </dependency>
-
-    </dependencies>
 
 
     <build>
         <plugins>
-            <!--For generating sources of Person from xsd-->
             <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-xjc-plugin</artifactId>
-                <version>2.3.0</version>
-                <configuration>
-                    <extensions>
-                        <extension>org.apache.cxf.xjcplugins:cxf-xjc-dv:2.3.0</extension>
-                    </extensions>
-                </configuration>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven.bundle.plugin.version}</version>
+                <extensions>true</extensions>
                 <executions>
                     <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
+                        <id>make-bundle</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>xsdtojava</goal>
-                        </goals>
-                        <configuration>
-                            <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
-                            <xsdOptions>
-                                <xsdOption>
-                                    <xsd>${basedir}/src/main/resources/Person.xsd</xsd>
-                                </xsdOption>
-                            </xsdOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-java2ws-plugin</artifactId>
-                <version>${cxf.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-frontend-jaxws</artifactId>
-                        <version>${cxf.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-frontend-simple</artifactId>
-                        <version>${cxf.version}</version>
-                    </dependency>
-                </dependencies>
-
-                <configuration>
-                    <className>com.epam.wklab.soap.simpl.PersonFriends</className>
-                    <genWsdl>true</genWsdl>
-                    <outputFile>${basedir}/src/main/webapp/META-INF/PersonFriends.wsdl</outputFile>
-                    <verbose>true</verbose>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>process-classes</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>java2ws</goal>
+                            <goal>bundle</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <instructions>
+                        <Import-Package>*</Import-Package>
+                    </instructions>
+                </configuration>
             </plugin>
 
         </plugins>
