@@ -21,6 +21,14 @@
         <maven.bundle.plugin.version>3.3.0</maven.bundle.plugin.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.epam.wklab</groupId>
+            <artifactId>soapsvcsrv</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
     <build>
         <plugins>
@@ -41,6 +49,7 @@
                 <configuration>
                     <instructions>
                         <Import-Package>*</Import-Package>
+                        <Private-Package>com.epam.wklab.soap.*</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>
