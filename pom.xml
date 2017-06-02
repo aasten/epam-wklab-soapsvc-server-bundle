@@ -8,11 +8,11 @@
     <artifactId>soapsvcsrv-bundle</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>pom</packaging>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <module>server</module>
-    </modules>
+    <!--<modules>-->
+        <!--<module>server</module>-->
+    <!--</modules>-->
 
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -49,7 +49,7 @@
                 <configuration>
                     <instructions>
                         <Import-Package>*</Import-Package>
-                        <Private-Package>com.epam.wklab.soap.*</Private-Package>
+                        <Embed-Dependency>dependencies</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
